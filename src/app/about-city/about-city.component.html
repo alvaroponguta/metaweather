@@ -1,0 +1,23 @@
+<div class="about">
+  <div class="containerTitle">
+    <h2>About {{ infoSelectedCity.title }}</h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-3 containerCountry">
+      <h4>Country</h4>
+      <p>{{ infoSelectedCity.parent.title }}</p>
+      <img [src]="flagPath" class="flagImage"/>
+    </div>
+    <foo-sun-logo
+      title= "Sunrise"
+      [sunImagePath]= "sunriseImagePath"
+      [hourSun]= "hourSunrise">
+    </foo-sun-logo>
+    <foo-sun-logo
+      title= "Sunset"
+      [sunImagePath]= "sunsetImagePath"
+      [hourSun]= "hourSunset">
+    </foo-sun-logo>
+    <img [src]="cityImagePath" class="col-xs-3 cityImage"/>
+  </div>
+</div>

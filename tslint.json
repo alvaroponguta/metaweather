@@ -1,5 +1,5 @@
 {
-  "extends": "tslint:recommended",
+  "extends": ["tslint-angular"],
   "rules": {
     "align": {
       "options": [
@@ -19,13 +19,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "foo",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "foo",
       "kebab-case"
     ],
     "eofline": true,

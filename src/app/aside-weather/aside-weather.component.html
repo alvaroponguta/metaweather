@@ -1,0 +1,33 @@
+<div *ngIf="weatherInfo">
+  <h3>Today</h3>
+  <div class="row containerAside">
+    <img [src]="logoWeather" class="col-xs-5 logoWeather">
+    <span class="col-xs-7 weatherState">
+      {{ weatherInfo.weather_state_name }}
+    </span>
+  </div>
+  <div class="containerAside" style="height: 40px;">
+    <span class="col-xs-12 infoAside">Max: {{ weatherInfo.max_temp }}°C</span>
+    <span class="col-xs-12 infoAside">Min: {{ weatherInfo.min_temp }}°C</span>
+  </div>
+  <div class="row containerAside">
+    <img
+      [src]="logoWindDirection"
+      class="col-xs-6 logoWindDirection"
+      [ngStyle]="directionArrow(weatherInfo.wind_direction_compass)"
+    >
+    <span class="col-xs-6" style="padding: 0 6px">{{ weatherInfo.wind_speed }}mph</span>
+  </div>
+  <div class="containerAside" style="height: 120px;">
+    <label class="col-xs-12 infoAside">Humidity</label>
+    <span class="col-xs-12 infoAside">{{ weatherInfo.humidity }}%</span>
+    <label class="col-xs-12 infoAside">Visibility</label>
+    <span class="col-xs-12 infoAside">{{ weatherInfo.visibility }} miles</span>
+    <label class="col-xs-12 infoAside">Pressure</label>
+    <span class="col-xs-12 infoAside">{{ weatherInfo.air_pressure }}mb</span>
+  </div>
+  <div class="containerAside">
+    <label class="col-xs-12 infoAside" >Confidence</label>
+    <span class="col-xs-12 infoAside">{{ weatherInfo.predictability }}%</span>
+  </div>
+</div>
