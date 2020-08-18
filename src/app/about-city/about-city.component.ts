@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { City } from '../shared/city.model';
 
 @Component({
   selector: 'foo-about-city',
@@ -6,7 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./about-city.component.scss']
 })
 export class AboutCityComponent implements OnChanges {
-  @Input() infoSelectedCity: any;
+  @Input() infoSelectedCity: City;
   cityImagePath = 'https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png';
   sunsetImagePath = 'https://icons-for-free.com/iconfiles/png/512/sun+sunset+weather+icon-1320196636209475292.png';
   sunriseImagePath = 'https://icons-for-free.com/iconfiles/png/512/sun+sunrise+weather+icon-1320196637098579511.png';
@@ -15,9 +16,9 @@ export class AboutCityComponent implements OnChanges {
   flagPath: string;
 
   ngOnChanges(): void {
-    const { timezone } = this.infoSelectedCity;
-    const sunriseDate = new Date(this.infoSelectedCity.sun_rise);
-    const sunsetDate = new Date(this.infoSelectedCity.sun_set);
+    const { timezone, sun_rise, sun_set } = this.infoSelectedCity;
+    const sunriseDate = new Date(sun_rise);
+    const sunsetDate = new Date(sun_set);
     const dateOptions = {
       timeZone: timezone,
       hour: '2-digit',
