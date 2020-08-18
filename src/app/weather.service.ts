@@ -8,16 +8,17 @@ import { catchError } from 'rxjs/operators';
 })
 export class WeatherService {
   constructor(private http: HttpClient) { }
+  url = 'https://www.metaweather.com/';
 
   getCityInfo(city: string): Observable<any> {
-    return this.http.get(`api/location/search/?query=${city}`)
+    return this.http.get(`${this.url}api/location/search/?query=${city}`)
       .pipe(
         catchError(this.handleError('getCityInfo', {}))
       );
   }
 
   getWeatherInfo(cityID: number): Observable<any> {
-    return this.http.get(`api/location/${cityID}/`)
+    return this.http.get(`${this.url}api/location/${cityID}/`)
       .pipe(
         catchError(this.handleError('getWeatherInfo', {}))
       );
