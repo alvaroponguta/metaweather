@@ -1,10 +1,16 @@
 <div class="container">
   <foo-city-form
     (cityWasSelected)="onSelectedCity($event)">
+    <div *ngIf="errorCity">
+      Por favor seleccione otra ciudad.
+    </div>
   </foo-city-form>
   <div *ngIf="infoSelectedCity">
     <foo-about-city
-      [infoSelectedCity]="infoSelectedCity">
+      [cities]="cities"
+      [infoSelectedCity]="infoSelectedCity"
+      (cityWasDeleted)="deleteCity($event)"
+      (cityWasSelected)="selectCity($event)">
     </foo-about-city>
     <div class="row">
       <foo-highchart-weather
@@ -18,8 +24,5 @@
         [weatherInfo]="infoSelectedCity.consolidated_weather[0]">
       </foo-aside-weather>
     </div>
-  </div>
-  <div *ngIf="errorCity">
-    Por favor seleccione otra ciudad.
   </div>
 </div>

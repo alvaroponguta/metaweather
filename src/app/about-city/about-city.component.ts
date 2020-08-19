@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { City } from '../shared/city.model';
 
 @Component({
@@ -8,6 +8,9 @@ import { City } from '../shared/city.model';
 })
 export class AboutCityComponent implements OnChanges {
   @Input() infoSelectedCity: City;
+  @Input() cities: City[];
+  @Output() cityWasDeleted = new EventEmitter<City>();
+  @Output() cityWasSelected = new EventEmitter<City>();
   cityImagePath = 'https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png';
   sunsetImagePath = 'https://icons-for-free.com/iconfiles/png/512/sun+sunset+weather+icon-1320196636209475292.png';
   sunriseImagePath = 'https://icons-for-free.com/iconfiles/png/512/sun+sunrise+weather+icon-1320196637098579511.png';
@@ -28,5 +31,13 @@ export class AboutCityComponent implements OnChanges {
     this.hourSunrise = sunriseDate.toLocaleString('en-US', dateOptions);
     this.hourSunset = sunsetDate.toLocaleString('en-US', dateOptions);
     this.flagPath = `https://www.countries-ofthe-world.com/flags-normal/flag-of-${this.infoSelectedCity.parent.title}.png`;
+  }
+
+  onClickDeleteCity(city: City): void {
+    this.cityWasDeleted.emit(city);
+  }
+
+  onClickCity(city: City): void {
+    this.cityWasSelected.emit(city);
   }
 }
