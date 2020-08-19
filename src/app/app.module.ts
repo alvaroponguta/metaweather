@@ -11,6 +11,7 @@ import { SunLogoComponent } from './sun-logo/sun-logo.component';
 import { HighchartWeatherComponent } from './highchart-weather/highchart-weather.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { CityFormComponent } from './city-form/city-form.component';
+import { SelectorComponent } from './selector/selector.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CityFormComponent } from './city-form/city-form.component';
     AsideWeatherComponent,
     SunLogoComponent,
     HighchartWeatherComponent,
-    CityFormComponent
+    CityFormComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

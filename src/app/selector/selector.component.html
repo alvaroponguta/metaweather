@@ -1,0 +1,10 @@
+<button
+  *ngFor="let city of cities"
+  class="btn btn-info"
+  style="margin-right: 12px;"
+  (click)="selectCity(city)">
+    {{ city.title  }}
+    <button class="deleteButton" (click)="deleteCity(city)">
+      &#10006;
+    </button>
+</button>

@@ -9,17 +9,19 @@
   </foo-city-form>
   <div *ngIf="infoSelectedCity">
     <foo-about-city
-      [cities]="cities"
-      [infoSelectedCity]="infoSelectedCity"
-      (cityWasDeleted)="deleteCity($event)"
-      (cityWasSelected)="selectCity($event)">
+      [infoSelectedCity]="infoSelectedCity">
     </foo-about-city>
     <div class="row">
-      <foo-highchart-weather
-        class="col-xs-10"
-        [cityWeather]="infoSelectedCity.consolidated_weather"
-        [cityName]="infoSelectedCity.title">
-      </foo-highchart-weather>
+      <div class="col-xs-10">
+        <foo-selector
+          [infoSelectedCity]="infoSelectedCity"
+          (cityChanged)="infoSelectedCity= $event">
+        </foo-selector>
+        <foo-highchart-weather
+          [cityWeather]="infoSelectedCity.consolidated_weather"
+          [cityName]="infoSelectedCity.title">
+        </foo-highchart-weather>
+      </div>
       <foo-aside-weather
         class="col-xs-2"
         style="padding-right: 0;"
