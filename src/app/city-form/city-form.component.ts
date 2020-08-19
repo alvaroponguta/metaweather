@@ -17,5 +17,4 @@ export class CityFormComponent implements OnInit {
   onCitySelected(): void {
     this.cityWasSelected.emit(this.cityTextRef.nativeElement.value);
   }
-
 }

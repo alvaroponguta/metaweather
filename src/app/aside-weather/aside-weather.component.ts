@@ -55,5 +55,4 @@ export class AsideWeatherComponent implements OnChanges {
       transform: `rotate(${degrees}deg)`
     };
   }
-
 }

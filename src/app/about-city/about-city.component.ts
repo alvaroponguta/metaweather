@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { City } from '../shared/city.model';
 
 @Component({
