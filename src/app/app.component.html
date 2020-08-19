@@ -1,7 +1,9 @@
 <div class="container">
   <foo-city-form
     (cityWasSelected)="onSelectedCity($event)">
-    <div *ngIf="errorCity">
+    <div
+      *ngIf="errorCity"
+      style="margin-top: 8px;">
       Por favor seleccione otra ciudad.
     </div>
   </foo-city-form>
