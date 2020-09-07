@@ -25,9 +25,11 @@ export class AsideWeatherComponent implements OnChanges {
   directionArrow(directionArrow: string): any {
     let degrees = 0;
     const comparator = (direction, directionToComparate) =>
-      direction.match(new RegExp(`(.*[${directionToComparate}]){2}`)) !== null;
+      direction.match(new RegExp(`^[${directionToComparate}<>=|0-9&()\s.]*$`)) !== null;
 
     switch (true) {
+      case directionArrow === 'S':
+        break;
       case directionArrow === 'N':
         degrees = 180;
         break;

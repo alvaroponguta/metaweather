@@ -45,7 +45,9 @@ export class SelectorComponent implements OnInit {
   }
 
   selectCity(city: City): void {
-    this.infoSelectedCity = city;
-    this.cityChanged.emit(this.infoSelectedCity);
+    if (city !== this.infoSelectedCity) {
+      this.infoSelectedCity = city;
+      this.cityChanged.emit(this.infoSelectedCity);
+    }
   }
 }
