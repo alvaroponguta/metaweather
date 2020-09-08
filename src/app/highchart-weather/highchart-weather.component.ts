@@ -13,7 +13,7 @@ export class HighchartWeatherComponent implements OnChanges {
   updateFlag = false;
 
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
+  chartOptions = {
     title: {
       text: 'City Temperature'
     },
@@ -54,7 +54,6 @@ export class HighchartWeatherComponent implements OnChanges {
     this.chartOptions.title.text = `${this.cityName} Temperature`;
 
     for (const temperatures of matrixTemperatures) {
-      // ERROR: Property 'data' does not exist on type 'SeriesOptionsType'.
       this.chartOptions.series[counter].data = temperatures;
       counter++;
     }

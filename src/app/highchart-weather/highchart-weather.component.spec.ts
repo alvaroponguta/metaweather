@@ -1,4 +1,4 @@
-/* import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 import { HighchartWeatherComponent } from './highchart-weather.component';
 
 describe('HighchartWeatherComponent', () => {
@@ -46,4 +46,3 @@ describe('HighchartWeatherComponent', () => {
     expect(highchartWeatherComponent.updateFlag).toBeTrue();
   });
 });
- */
