@@ -43,8 +43,8 @@ describe('AboutCityComponent', () => {
     aboutCityComponent.ngOnChanges();
 
     expect(aboutCityComponent.infoSelectedCity).toEqual(mockCity);
-    expect(aboutCityComponent.hourSunrise).toBe('06:23 AM');
-    expect(aboutCityComponent.hourSunset).toBe('07:32 PM');
+    expect(aboutCityComponent.hourSunrise).toBe('6:23 AM');
+    expect(aboutCityComponent.hourSunset).toBe('7:32 PM');
     expect(aboutCityComponent.flagPath).toBe('https://www.countries-ofthe-world.com/flags-normal/flag-of-England.png');
   });
 });
