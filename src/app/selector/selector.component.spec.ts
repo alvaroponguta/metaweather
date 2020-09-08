@@ -26,7 +26,7 @@ describe('SelectorComponent', () => {
     selectorComponent = fixture.componentInstance;
 
     spyEmitCityChanged = spyOn(selectorComponent.cityChanged, 'emit');
-    spyCheckCity = spyOn(selectorComponent, 'checkCity');
+    spyCheckCity = spyOn(selectorComponent, 'checkCity').and.callThrough();
 
     selectorComponent.infoSelectedCity = mockCity;
     fixture.detectChanges();
@@ -41,9 +41,9 @@ describe('SelectorComponent', () => {
     selectorComponent.deleteCity(mockCity);
 
     expect(spyCheckCity).toHaveBeenCalledWith(mockCity);
-    expect(selectorComponent.cities.length).toEqual(0);
-    //expect(selectorComponent.infoSelectedCity).toEqual(undefined);
-    //expect(spyEmitCityChanged).toHaveBeenCalledWith(mockCity);
+    expect(selectorComponent.cities.length).toBe(0);
+    expect(selectorComponent.infoSelectedCity).toBeUndefined();
+    expect(spyEmitCityChanged).toHaveBeenCalledWith(undefined);
   })));
 
   it('should delete the selected city, check for changes and change the city', async(inject([CitiesService], (citiesService: CitiesService) => {
@@ -53,9 +53,9 @@ describe('SelectorComponent', () => {
     selectorComponent.deleteCity(mockCity);
 
     expect(spyCheckCity).toHaveBeenCalledWith(mockCity);
-    expect(selectorComponent.cities.length).toEqual(1);
-    //expect(selectorComponent.infoSelectedCity).toEqual(mockSecondCity);
-    //expect(spyEmitCityChanged).toHaveBeenCalledWith(mockSecondCity);
+    expect(selectorComponent.cities.length).toBe(1);
+    expect(selectorComponent.infoSelectedCity).toEqual(mockSecondCity);
+    expect(spyEmitCityChanged).toHaveBeenCalledWith(mockSecondCity);
   })));
 
   it('should delete a not selected city, check for changes and dont change the city', async(inject([CitiesService], (citiesService: CitiesService) => {
@@ -65,7 +65,7 @@ describe('SelectorComponent', () => {
     selectorComponent.deleteCity(mockSecondCity);
 
     expect(spyCheckCity).toHaveBeenCalledWith(mockSecondCity);
-    expect(selectorComponent.cities.length).toEqual(1);
+    expect(selectorComponent.cities.length).toBe(1);
     expect(selectorComponent.infoSelectedCity).toEqual(mockCity);
     expect(spyEmitCityChanged).not.toHaveBeenCalled();
   })));

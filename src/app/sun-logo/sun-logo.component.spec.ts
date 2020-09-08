@@ -10,21 +10,31 @@ describe('SunLogoComponent', () => {
     }).compileComponents();
     fixture = TestBed.createComponent(SunLogoComponent);
     sunLogoComponent = fixture.componentInstance;
+
+    sunLogoComponent.sunImagePath = 'sunpath.jpg';
+    sunLogoComponent.hourSun = '06:00am';
+    sunLogoComponent.title = 'Sunrise';
+    sunLogoComponent.borderRadius = '50px';
+
+    fixture.detectChanges();
   }));
 
   it('should create the component', () => {
     expect(sunLogoComponent).toBeTruthy();
   });
 
-  it('should initialize with the correct inputs', () => {
-    sunLogoComponent.sunImagePath = 'sunpath.jpg';
-    sunLogoComponent.hourSun = '06:00am';
-    sunLogoComponent.title = 'Sunrise';
+  it('should set the bottom left radius if the title is Sunset', () => {
+    expect(sunLogoComponent.radiusSide()).toEqual({
+      'border-bottom-left-radius':  sunLogoComponent.borderRadius,
+    });
+  });
 
+  it('should set the bottom right radius if the title is Sunrise', () => {
+    sunLogoComponent.title = 'Sunset';
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('h3').innerText).toEqual('Sunrise');
-    expect(fixture.nativeElement.querySelector('img').src).toEqual('http://localhost:9877/sunpath.jpg');
-    expect(fixture.nativeElement.querySelector('p').innerText).toEqual('06:00am');
+    expect(sunLogoComponent.radiusSide()).toEqual({
+      'border-bottom-right-radius':  sunLogoComponent.borderRadius,
+    });
   });
 });

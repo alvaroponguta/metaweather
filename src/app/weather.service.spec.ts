@@ -17,7 +17,8 @@ describe('WeatherService', () => {
     expect(service.url).toEqual('https://www.metaweather.com/');
   });
 
-  /* it('#getCityInfo should return information about the city from observable',
+  // Jasmine timeout
+  xit('#getCityInfo should return information about the city from observable',
     (done: DoneFn) => {
       service.getCityInfo('London').subscribe(cityInfo => {
         expect(cityInfo[0].title).toBe('London');
@@ -26,7 +27,8 @@ describe('WeatherService', () => {
       });
   });
 
-  it('#getWeatherInfo should return information about the weather, country and timezone from observable',
+  // Jasmine timeout
+  xit('#getWeatherInfo should return information about the weather, country and timezone from observable',
     (done: DoneFn) => {
       service.getWeatherInfo(44418).subscribe(cityInfo => {
         expect(cityInfo.consolidated_weather.length).toBe(6);
@@ -34,5 +36,5 @@ describe('WeatherService', () => {
         expect(cityInfo.timezone).toBe('Europe/London');
         done();
       });
-  }); */
+  });
 });

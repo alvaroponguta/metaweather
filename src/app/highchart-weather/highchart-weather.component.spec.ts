@@ -30,9 +30,9 @@ describe('HighchartWeatherComponent', () => {
   });
 
   it('should initialize correctly', () => {
-    expect(highchartWeatherComponent.cityWeather).toEqual(undefined);
-    expect(highchartWeatherComponent.cityName).toEqual(undefined);
-    expect(highchartWeatherComponent.updateFlag).toEqual(false);
+    expect(highchartWeatherComponent.cityWeather).toBeUndefined();
+    expect(highchartWeatherComponent.cityName).toBeUndefined();
+    expect(highchartWeatherComponent.updateFlag).toBeFalse();
   });
 
   it('should render the component if weather is defined', () => {
@@ -42,8 +42,8 @@ describe('HighchartWeatherComponent', () => {
 
     highchartWeatherComponent.ngOnChanges();
 
-    expect(highchartWeatherComponent.chartOptions.title.text).toEqual('Test City Temperature');
-    expect(highchartWeatherComponent.updateFlag).toEqual(true);
+    expect(highchartWeatherComponent.chartOptions.title.text).toBe('Test City Temperature');
+    expect(highchartWeatherComponent.updateFlag).toBeTrue();
   });
 });
  */

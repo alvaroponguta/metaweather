@@ -19,18 +19,19 @@ describe('AppComponent', () => {
   });
 
   it('should initialize attributes correctly', () => {
-    expect(app.errorCity).toEqual(false);
-    expect(app.infoSelectedCity).toEqual(undefined);
+    expect(app.errorCity).toBeFalse();
+    expect(app.infoSelectedCity).toBeUndefined();
   });
 
-  /* it('should asign a city', async (done: DoneFn) => {
+  // Jasmine timeout
+  xit('should asign a city', async (done: DoneFn) => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
 
     await app.onSelectedCity('London');
-    expect(app.errorCity).toEqual(false);
-    expect(app.infoSelectedCity).not.toEqual(undefined);
+    expect(app.errorCity).toBeFalse();
+    expect(app.infoSelectedCity).toBeDefined();
 
     done();
-  }); */
+  });
 });

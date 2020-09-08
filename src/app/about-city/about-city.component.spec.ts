@@ -27,13 +27,13 @@ describe('AboutCityComponent', () => {
   });
 
   it('should initialize correctly', () => {
-    expect(aboutCityComponent.infoSelectedCity).toEqual(undefined);
-    expect(aboutCityComponent.cityImagePath).toEqual('https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png');
-    expect(aboutCityComponent.sunsetImagePath).toEqual('https://icons-for-free.com/iconfiles/png/512/sun+sunset+weather+icon-1320196636209475292.png');
-    expect(aboutCityComponent.sunriseImagePath).toEqual('https://icons-for-free.com/iconfiles/png/512/sun+sunrise+weather+icon-1320196637098579511.png');
-    expect(aboutCityComponent.hourSunrise).toEqual(undefined);
-    expect(aboutCityComponent.hourSunset).toEqual(undefined);
-    expect(aboutCityComponent.flagPath).toEqual(undefined);
+    expect(aboutCityComponent.infoSelectedCity).toBeUndefined();
+    expect(aboutCityComponent.cityImagePath).toBe('https://openweathermap.org/themes/openweathermap/assets/img/new-history-forecast-bulk.png');
+    expect(aboutCityComponent.sunsetImagePath).toBe('https://icons-for-free.com/iconfiles/png/512/sun+sunset+weather+icon-1320196636209475292.png');
+    expect(aboutCityComponent.sunriseImagePath).toBe('https://icons-for-free.com/iconfiles/png/512/sun+sunrise+weather+icon-1320196637098579511.png');
+    expect(aboutCityComponent.hourSunrise).toBeUndefined();
+    expect(aboutCityComponent.hourSunset).toBeUndefined();
+    expect(aboutCityComponent.flagPath).toBeUndefined();
   });
 
   it('should assign hour sunrise, hor sunset and flagpath on city selected', () => {
@@ -43,8 +43,8 @@ describe('AboutCityComponent', () => {
     aboutCityComponent.ngOnChanges();
 
     expect(aboutCityComponent.infoSelectedCity).toEqual(mockCity);
-    expect(aboutCityComponent.hourSunrise).toEqual('06:23 AM');
-    expect(aboutCityComponent.hourSunset).toEqual('07:32 PM');
-    expect(aboutCityComponent.flagPath).toEqual(`https://www.countries-ofthe-world.com/flags-normal/flag-of-England.png`);
+    expect(aboutCityComponent.hourSunrise).toBe('06:23 AM');
+    expect(aboutCityComponent.hourSunset).toBe('07:32 PM');
+    expect(aboutCityComponent.flagPath).toBe('https://www.countries-ofthe-world.com/flags-normal/flag-of-England.png');
   });
 });

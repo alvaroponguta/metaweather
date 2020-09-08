@@ -30,9 +30,9 @@ describe('AsideWeatherComponent', () => {
   });
 
   it('should initialize correctly', () => {
-    expect(asideWeatherComponent.weatherInfo).toEqual(undefined);
-    expect(asideWeatherComponent.logoWeather).toEqual(undefined);
-    expect(asideWeatherComponent.logoWindDirection).toEqual('https://www.metaweather.com/static/img/windarrow.svg');
+    expect(asideWeatherComponent.weatherInfo).toBeUndefined();
+    expect(asideWeatherComponent.logoWeather).toBeUndefined();
+    expect(asideWeatherComponent.logoWindDirection).toBe('https://www.metaweather.com/static/img/windarrow.svg');
   });
 
   it('should render the component if weather is defined', () => {
@@ -41,7 +41,7 @@ describe('AsideWeatherComponent', () => {
 
     asideWeatherComponent.ngOnChanges();
 
-    expect(asideWeatherComponent.logoWeather).toEqual('https://www.metaweather.com/static/img/weather/hc.svg');
+    expect(asideWeatherComponent.logoWeather).toBe('https://www.metaweather.com/static/img/weather/hc.svg');
   });
 
   describe('should return the correct degrees for', () => {

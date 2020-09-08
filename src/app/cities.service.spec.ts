@@ -21,7 +21,7 @@ describe('CitiesService', () => {
 
   it('should be created', () => {
     expect(citiesService).toBeTruthy();
-    expect(citiesService.cities.length).toEqual(0);
+    expect(citiesService.cities.length).toBe(0);
     expect(spyEmitCities).not.toHaveBeenCalled();
   });
 
@@ -32,14 +32,14 @@ describe('CitiesService', () => {
 
   it('should return the array of cities with one city', () => {
     citiesService.addCity(mockCity);
-    expect(citiesService.getCities().length).toEqual(1);
+    expect(citiesService.getCities().length).toBe(1);
     expect(citiesService.getCities()).toEqual([mockCity]);
   });
 
   it('should delete city and emit with the new array', () => {
     citiesService.addCity(mockCity);
     citiesService.deleteCity(mockCity);
-    expect(citiesService.cities.length).toEqual(0);
+    expect(citiesService.cities.length).toBe(0);
     expect(spyEmitCities).toHaveBeenCalledWith([]);
   });
 
@@ -55,8 +55,8 @@ describe('CitiesService', () => {
     citiesService.addCity(mockThirdCity);
 
     citiesService.deleteCity(mockSecondCity);
-    expect(citiesService.cities.some(city => city === mockSecondCity)).toEqual(false);
-    expect(citiesService.cities.length).toEqual(2);
+    expect(citiesService.cities.some(city => city === mockSecondCity)).toBeFalse();
+    expect(citiesService.cities.length).toBe(2);
     expect(spyEmitCities).toHaveBeenCalledWith([mockCity, mockThirdCity]);
   });
 });
